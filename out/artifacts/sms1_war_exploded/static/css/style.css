@@ -1,0 +1,604 @@
+
+ul{
+   list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+html ,body{
+    font-family: "微软雅黑";
+
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+.clear{
+    clear: both;
+}
+
+.wrapperBox{
+    width: 100%;
+}
+
+/*导航条*/
+.navBox{
+    width: 100%;
+    height: 150px;
+    background: #1E6F46;
+}
+
+/*设置首导航栏*/
+.navbar{
+    width: 100%;
+    margin: 0 auto; //居中
+}
+
+.navbar .logo{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+/*.logo img{*/
+/*    margin-top: 50px;*/
+/*    margin-left: 50px;*/
+/*}*/
+
+.navbar .title{
+    width: 500px;
+    height: 68px;
+    float: left;
+}
+
+.title img{
+    padding-left: 200px;
+    margin-top: 20px;
+}
+
+.navbar nav{
+    float: left;
+    margin-left:200px;
+}
+
+.navbar nav ul li{
+    float: left;
+}
+
+
+.navbar nav ul li a{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    margin-top: 110px;
+    color: #fff;
+    z-index:2;
+}
+
+.navbar nav ul li a:hover{
+    color:#1E6F46;
+    background: #fff;
+}
+
+/*设置次导航栏*/
+.titlediv {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    float: left;
+    text-align: center; /*字体居中*/
+    padding-left: 150px;
+
+}
+
+.titlediv_ul {
+    list-style-type: none; /*隐藏点*/
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.titlediv_ul > li {
+    /*white-space: nowrap;*/
+    /*横向*/
+    float: left;
+    margin-right:100px;
+}
+
+.drop-down > a {
+    display: block; /*设置块级*/
+    width: 100px;
+    line-height: 60px; /*保证文字垂直居中*/
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+
+}
+
+/*悬浮效果*/
+.drop-down > a:hover {
+    color: #ffff;
+    background: #1E6F46;
+}
+
+/*下拉菜单*/
+.drop-down {
+    /*position: relative;*/
+    /*  white-space: nowrap;!**!*/
+}
+
+.drop-down-content {
+    padding: 0;
+    display: none; /*1 先隐藏*/
+}
+
+.drop-down-content > li {
+    list-style-type: none; /*去点样式*/
+}
+
+.drop-down:hover .drop-down-content {
+    display: block; /*2显示*/
+    background-color: #1E6F46;
+    opacity:0.9;
+}
+
+.drop-down-content > li > a {
+    display: block; /*设置块级*/
+    width: 100px;
+    line-height: 60px; /*保证文字垂直居中*/
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.drop-down-content > li > a:hover {
+    color: #ffffff;
+
+}
+
+/*banner条*/
+.bannerBox{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+
+}
+
+.bannerBox li .img{
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 10px;
+}
+
+.bannerBox li .current{
+    display: block;
+}
+
+.bannerBox .dots{
+	position: absolute; /*绝对位置*/
+    width: 100px;
+    right: 50%;
+    bottom: 50%;
+    margin-right: -100px;
+    margin-bottom: -180px;
+}
+
+.bannerBox .dots>span{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    cursor: pointer;  /*鼠标变成点击模式*/
+    box-sizing: border-box;
+}
+
+.bannerBox .dots>span:not(:last-child){
+    margin-right:5px;  /*除掉最后一个外间隔5px*/
+}
+
+.bannerBox .dots>span.square{
+	background:#1E6F46; /*设置第一个圆点有颜色*/
+}
+
+.searchBox form input{
+    width: 907px;
+    height: 68px;
+    float: left;
+    text-indent: 20px;
+    border-radius: 5px;
+}
+
+.searchBox form input[type="submit"]{
+	display:inline-block;
+	width:68px;
+	height:68px;
+	background:url(https://sms-lxy.oss-cn-shanghai.aliyuncs.com/图片素材/图标/searchicon.png?versionId=CAEQJBiBgMDk6vDG4RciIDBjZjE0MDk2ZWQ1ZjQ3Y2ZiMzE1MGVkOGQwNjM3NjYy) no-repeat center;
+    cursor: pointer;
+    /*动画*/
+    /*无限次 来回滚动*/
+    animation: bounce 0.75s infinite alternate;
+}
+
+/*bounce跳动动画*/
+/*keyframes是关键帧*/
+@keyframes bounce {
+    0%{
+        /*translate改变位置*/
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(0,-8px,0);
+    }
+}
+
+/*新闻栏*/
+.information-box {
+    padding: 0px 0 58px;
+    color: #fff;
+    background-size: 100% 100%;
+}
+
+.information-con {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.information-head {
+    width: 1050px;
+}
+
+.information-head h2 {
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    padding-top: 60px;
+    font-size: 30px;
+    color: black;
+}
+
+.information-head p {
+    line-height: 1;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: #cccccc;
+}
+
+.information-main {
+    background: #fff;
+}
+
+.information-main-fl {
+    width: 524px;
+    overflow: hidden;
+    float: left;
+    height: 374px;
+    position: relative;
+}
+
+.information-main-fr {
+    width: 526px;
+    overflow: hidden;
+    float: right;
+    height: 374px;
+}
+
+.prev {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    margin-top: -30px;
+    left: 10%;
+    z-index: 1;
+    width: 40px;
+    height: 60px;
+    background: url(https://sms-lxy.oss-cn-shanghai.aliyuncs.com/图片素材/图标/icon-arrow.png?versionId=CAEQJBiBgMDl6vDG4RciIDQ2NGEwZmFiM2QyNjRiMTRhYzU2MDM4OWEzZGZkMDUz) -126px -137px no-repeat;
+    cursor: pointer;
+}
+
+.next {
+    display: block;
+    position: absolute;
+    left: auto;
+    right: 10%;
+    top: 45%;
+    margin-top: -30px;
+    z-index: 1;
+    width: 40px;
+    height: 60px;
+    background: url(https://sms-lxy.oss-cn-shanghai.aliyuncs.com/图片素材/图标/icon-arrow.png?versionId=CAEQJBiBgMDl6vDG4RciIDQ2NGEwZmFiM2QyNjRiMTRhYzU2MDM4OWEzZGZkMDUz) -6px -137px no-repeat;
+    cursor: pointer;
+}
+
+.information-main-back {
+    background: #000;
+    filter: Alpha(opacity=70);
+    opacity: 0.7;
+    position: absolute;
+    z-index: 1;
+    height: 60px;
+    bottom: 0;
+    width: 523px;
+}
+
+.information-main-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 523px;
+    line-height: 60px;
+    padding: 0 16px;
+    display: block;
+    z-index: 2;
+    text-align: left;
+    margin-top: -20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.main-btn {
+    padding: 10px 17px;
+    margin-top: 11px;
+    border: 1px solid #7d7d7d;
+    line-height: 1;
+    color: #fff;
+    border: 1px solid #ddd;
+    float: right;
+    font-size: 16px;
+}
+
+.information-main-fl .bd ul li {
+    position: relative;
+}
+
+.information-main-fr .hd ul {
+    font-size: 16px;
+}
+
+.information-main-fr .hd ul li {
+    float: left;
+    cursor: pointer;
+    list-style: none;
+    height: 60px;
+    line-height: 60px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-top: 0;
+    width: 150px;
+    border-left: 0;
+}
+
+.information-main-fr .hd ul .on {
+    color:  #1E6F46;
+    border-top: 4px solid  #1E6F46;
+    height: 57px;
+    border-bottom: 0;
+    line-height: 52px;
+}
+
+.information-main-fr .bd ul {
+    color: #333;
+    padding: 0 24px 0 32px;
+}
+
+.information-main-fr .bd ul li {
+    height: 50px;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 50px;
+    text-align: left;
+    list-style-type: disc;
+}
+
+.information-main-fr .bd ul li span {
+    float: right;
+}
+
+.information-main-fr .bd ul li a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 350px;
+    float: left;
+}
+
+.information-main-fr .bd ul li a:hover {
+    color:  #1E6F46;
+}
+
+.information-more {
+    cursor: pointer;
+    color:  #1E6F46;
+    text-align: center;
+    line-height: 34px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.information-more a {
+    cursor: pointer;
+    color:  #1E6F46;
+    text-align: center;
+    line-height: 34px;
+    margin-top: 12px;
+
+}
+
+.information-more a:hover {
+    color:  #1E6F46;
+}
+
+
+
+/*课程介绍*/
+.oddsBox{
+    width: 2001.200px;
+    margin:30px auto 70px auto ; /*上30，z下70 左右自动调整*/
+}
+
+/*标题*/
+.oddsBox .title{
+    height: 40px;
+}
+.oddsBox .title p{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    background:#1E6F46;
+    color: #ffffff;
+    text-align: center;
+    font-size: 22px;
+    float: right;
+}
+
+.oddsBox .title p>a{
+    text-decoration:none;
+    color: #ffffff;
+}
+
+.oddsBox .content{
+    clear: left;
+    height: 760px;
+    margin-top: 60px;
+}
+
+.content .list .list_nav{
+    display: inline-block;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: 0 0 4px 0 #cccccc ; /*水平 垂直 偏移 模糊程度 颜色*/
+    margin-right: 80px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.content .list .list_nav:last-child{
+    margin-right: 0;
+}
+
+.content .list .current_option{
+    background: #1E6F46;
+    color: #ffffff;
+}
+
+/*学课大类对应的课程*/
+.productBox{
+    width: 100%;
+    height: 350px;
+    margin: 20px 0;
+    clear:both;
+    display: none;
+}
+
+.on{
+    display: block;
+}
+
+.infoBox{
+    width:400px;
+    float: left;
+    margin: 20px 13px 0 0 ;
+}
+
+.infoBox:nth-child(4){
+    margin-right: 0;
+}
+
+.infoBox p:first-child{
+    width:300px;
+	height:300px;
+	border:1px solid #fff;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.infoBox p:first-child img{
+    width: 100%;
+    height:100%;
+    cursor: pointer;
+    /*过渡放大特效*/
+    transition: 0.6s;
+}
+
+/*放大特效*/
+.infoBox p:first-child img:hover{
+    /*图片放大1.2倍*/
+    transform: scale(1.2);
+}
+
+.title{
+	font-size:16px;
+	margin:10px 0;
+}
+
+.infoBox span{
+	font-size:12px;
+}
+
+.infoBox p s{
+	margin:0 5px;
+}
+
+.infoBox ul{
+	margin:10px 0;
+}
+
+.infoBox ul li{
+	float:left;
+	font-size:12px;
+}
+
+.infoBox ul li img{
+	margin-right:15px;
+}
+
+/*友情链接*/
+.listlinkBox{
+    height: 224px;
+    width: 100%;
+    background:url(https://sms-lxy.oss-cn-shanghai.aliyuncs.com/图片素材/navBar/foot.png?versionId=CAEQJBiBgMCzuILH4RciIGMyNDY3MDMxN2M1NTRiZDBiODE1ZDc5OWM2ZjdmYWE1) no-repeat center;
+    background-size: cover;
+    margin-top: 200px;
+    padding-top: 50px;
+}
+
+.listlinkBox .linkBox{
+    float: left;
+    margin:0 80px 0 80px;
+}
+
+.listlinkBox .linkBox h4{
+    color: #ffffff;
+}
+
+.listlinkBox .linkBox p a{
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration:none;
+}
+
+/*底部信息*/
+.copyBox{
+    text-align: center;
+    background: #05421D;
+}
+
+.copyBox p{
+    color: #ffffff;
+}

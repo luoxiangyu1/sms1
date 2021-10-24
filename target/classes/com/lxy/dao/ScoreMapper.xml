@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.ScoreMapper">
+
+    <insert id="addScore" parameterType="Score">
+        insert into sms.score (stuId,courseId,scoreUsual,scoreRatio,scoreExam,scoreTotal)
+        values (#{stuId},#{courseId},#{scoreUsual},#{scoreRatio},#{scoreExam},#{scoreTotal});
+    </insert>
+
+    <delete id="deleteScoreById" parameterType="int">
+        delete from sms.score where scoreId=#{scoreId};
+    </delete>
+
+    <update id="updateScore" parameterType="Score">
+        update sms.score
+        set stuId=#{stuId},courseId=#{courseId},scoreUsual=#{scoreUsual},scoreRatio=#{scoreRatio},scoreExam=#{scoreExam},scoreTotal=#{scoreTotal}
+        where scoreId=#{scoreId};
+    </update>
+
+    <select id="queryScoreById" parameterType="int" resultType="Score">
+        select * from sms.score where scoreId=#{scoreId};
+    </select>
+
+
+    <select id="queryAllScore" resultType="Score">
+        select * from sms.score;
+    </select>
+
+    <select id="queryScoreByStuId" parameterType="int" resultType="Score">
+        select * from sms.score where stuId=#{stuId};
+    </select>
+
+    <select id="queryScoreByCourseId" parameterType="int" resultType="Score">
+        select * from sms.score where courseId=#{courseId};
+    </select>
+
+</mapper>

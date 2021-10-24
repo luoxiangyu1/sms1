@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.CourseMapper">
+
+    <insert id="addCourse" parameterType="Course">
+        insert into sms.course (teacherId,collegeId,courseName,courseCredit,coursePeriod,courseRoom,courseBegin,courseTime,classId,courseYear,courseIntro,courseType)
+        values(#{teacherId},#{collegeId},#{courseName},#{courseCredit},#{coursePeriod},#{courseRoom},#{courseBegin},#{courseTime},#{classId},#{courseYear},#{courseIntro},#{courseType});
+    </insert>
+
+
+    <delete id="deleteCourseById" parameterType="int">
+        delete from sms.course where courseId = #{courseId};
+    </delete>
+    
+    <update id="updateCourse" parameterType="Course">
+        update sms.course
+        set teacherId=#{teacherId},collegeId=#{collegeId},courseName=#{courseName},courseCredit=#{courseCredit},coursePeriod=#{coursePeriod},courseRoom=#{courseRoom},courseBegin=#{courseBegin},courseTime=#{courseTime},classId=#{classId},courseYear=#{courseYear},courseIntro=#{courseIntro},courseType=#{courseType}
+        where courseId=#{courseId};
+    </update>
+
+    <update id="updateCoursePic" parameterType="Course">
+        update sms.course
+        set coursePic=#{coursePic}
+        where courseId=#{courseId};
+    </update>
+
+    <select id="queryCouseById" parameterType="int" resultType="Course">
+        select * from sms.course
+        where courseId=#{courseId};
+    </select>
+
+    <select id="queryAllCourse" resultType="Course">
+        select * from sms.course
+    </select>
+
+    <select id="queryCourseByName" parameterType="String" resultType="Course">
+        select * from sms.course
+        where courseName like concat('%',#{courseName},'%');
+    </select>
+
+    <select id="courseShow" resultType="Course">
+        select * from sms.course order by courseId desc limit 0,4;
+    </select>
+
+
+    <select id="queryCourseByCollege" parameterType="int" resultType="Course">
+        select * from sms.course
+        where collegeId=#{collegeId};
+    </select>
+
+    <select id="queryCourseByCourseType" parameterType="String" resultType="Course">
+        select * from sms.course
+        where courseType=#{courseType};
+    </select>
+
+</mapper>

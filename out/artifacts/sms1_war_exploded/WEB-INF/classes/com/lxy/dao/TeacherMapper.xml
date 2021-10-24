@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.TeacherMapper">
+
+    <insert id="addTeacher" parameterType="Teacher">
+        insert into sms.teacher (teacherName,collegeId,teacherGender,teacherAge,teacherRoom,teacherTitle,teacherPhone,teacherEmail,teacherAddress,teacherNation,teacherStatus,teacherPwd)
+        values (#{teacherName},#{collegeId},#{teacherGender},#{teacherAge},#{teacherRoom},#{teacherTitle},#{teacherPhone},#{teacherEmail},#{teacherAddress},#{teacherNation},#{teacherStatus},#{teacherPwd});
+    </insert>
+
+    <delete id="deleteTeacherById" parameterType="int">
+        delete from sms.teacher where teacherId=#{teacherId};
+    </delete>
+
+    <update id="updateTeacher" parameterType="Teacher">
+        update sms.teacher
+        set teacherName=#{teacherName},collegeId=#{collegeId},teacherGender=#{teacherGender},teacherAge=#{teacherAge},teacherRoom=#{teacherRoom},teacherTitle=#{teacherTitle},teacherPhone=#{teacherPhone},teacherEmail=#{teacherEmail},teacherAddress=#{teacherAddress},teacherNation=#{teacherNation},teacherStatus=#{teacherStatus}
+        where teacherId=#{teacherId};
+    </update>
+
+    <select id="queryTeacherById" parameterType="int" resultType="Teacher">
+        select * from sms.teacher
+        where teacherId=#{teacherId};
+    </select>
+
+    <select id="queryAllTeacher" resultType="Teacher">
+        select * from sms.teacher;
+    </select>
+
+    <select id="queryTeacherByName" parameterType="String" resultType="Teacher">
+        select * from sms.teacher
+        where teacherName like concat('%',#{teacherName},'%');
+    </select>
+
+</mapper>

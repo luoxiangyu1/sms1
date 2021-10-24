@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.ClassMapper">
+
+    <insert id="addClass" parameterType="Class">
+        insert into sms.class (collegeId,majorId,className,teacherId,classGrade)
+        values (#{collegeId},#{majorId},#{className},#{teacherId},#{classGrade});
+    </insert>
+
+    <delete id="deleteClassById" parameterType="int">
+        delete from sms.class where classId=#{classId};
+    </delete>
+
+    <update id="updateClass" parameterType="Class">
+        update sms.class set collegeId=#{collegeId},majorId=#{majorId},className=#{className},teacherId=#{teacherId},classGrade=#{classGrade}
+        where classId=#{classId};
+    </update>
+
+    <select id="queryClassById" parameterType="int" resultType="Class">
+        select * from sms.class where classId=#{classId};
+    </select>
+
+    <select id="queryAllClass" resultType="Class">
+        select * from sms.class;
+    </select>
+
+    <select id="queryClassByName" parameterType="String" resultType="Class">
+        select * from sms.class where className like CONCAT('%',#{className},'%');
+    </select>
+
+</mapper>

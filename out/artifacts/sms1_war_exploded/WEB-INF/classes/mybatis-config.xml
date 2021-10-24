@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.lxy.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+    <mappers>
+        <mapper class="com.lxy.dao.CourseMapper"/>
+        <mapper class="com.lxy.dao.StudentMapper"/>
+        <mapper class="com.lxy.dao.TeacherMapper"/>
+        <mapper class="com.lxy.dao.ScoreMapper"/>
+        <mapper class="com.lxy.dao.CollegeMapper"/>
+        <mapper class="com.lxy.dao.MajorMapper"/>
+        <mapper class="com.lxy.dao.AdminMapper"/>
+        <mapper class="com.lxy.dao.ClassMapper"/>
+        <mapper class="com.lxy.dao.TypeMapper"/>
+    </mappers>
+
+
+
+
+</configuration>

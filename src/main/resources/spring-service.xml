@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.lxy.service"/>
+
+    <bean id="CourseServiceImpl" class="com.lxy.service.CourseServiceImpl">
+        <property name="courseMapper" ref="courseMapper"/>
+    </bean>
+
+    <bean id="StudentServiceImpl" class="com.lxy.service.StudentServiceImpl">
+        <property name="studentMapper" ref="studentMapper"/>
+    </bean>
+
+    <bean id="TeacherServiceImpl" class="com.lxy.service.TeacherServiceImpl">
+        <property name="teacherMapper" ref="teacherMapper"/>
+    </bean>
+
+    <bean id="ScoreServiceImpl" class="com.lxy.service.ScoreServiceImpl">
+        <property name="scoreMapper" ref="scoreMapper"/>
+    </bean>
+
+    <bean id="CollegeServiceImpl" class="com.lxy.service.CollegeServiceImpl">
+        <property name="collegeMapper" ref="collegeMapper"/>
+    </bean>
+
+    <bean id="MajorServiceImpl" class="com.lxy.service.MajorServiceImpl">
+        <property name="majorMapper" ref="majorMapper"/>
+    </bean>
+
+    <bean id="AdminServiceImpl" class="com.lxy.service.AdminServiceImpl">
+        <property name="adminMapper" ref="adminMapper"/>
+    </bean>
+
+    <bean id="ClassServiceImpl" class="com.lxy.service.ClassServiceImpl">
+        <property name="classMapper" ref="classMapper"/>
+    </bean>
+
+    <bean id="TypeServiceImpl" class="com.lxy.service.TypeServiceImpl">
+        <property name="typeMapper" ref="typeMapper"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="txPointCut" expression="execution(* com.lxy.dao.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+    </aop:config>
+
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="10485760"/>
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+
+
+</beans>

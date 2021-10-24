@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.CollegeMapper">
+
+    <insert id="addCollege" parameterType="College">
+        insert into sms.college (collegeName)
+        values (#{collegeName});
+    </insert>
+
+    <delete id="deleteCollegeById" parameterType="int">
+        delete from sms.college where collegeId=#{collegeId};
+    </delete>
+
+    <update id="updateCollege" parameterType="College">
+        update sms.college
+        set collegeName=#{collegeName}
+        where collegeId=#{collegeId};
+    </update>
+
+    <select id="queryCollegeById" parameterType="int" resultType="College">
+        select * from sms.college where collegeId=#{collegeId};
+    </select>
+
+    <select id="queryAllCollege" resultType="College">
+        select * from sms.college;
+    </select>
+
+    <select id="queryCollegeByName" parameterType="String" resultType="College">
+        select * from sms.college where collegeName like concat('%',#{collegeName},'%');
+    </select>
+
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxy.dao.MajorMapper">
+
+    <insert id="addMajor" parameterType="Major">
+        insert into sms.major (majorName,collegeId) values (#{majorName},#{collegeId});
+    </insert>
+
+    <delete id="deleteMajorById" parameterType="int">
+        delete from sms.major where majorId=#{majorId};
+    </delete>
+
+    <update id="updateMajor" parameterType="Major">
+        update sms.major
+        set majorName=#{majorName},collegeId=#{collegeId}
+        where majorId=#{majorId};
+    </update>
+
+    <select id="queryMajorById" parameterType="int" resultType="Major">
+        select * from sms.major where majorId=#{majorId};
+    </select>
+
+    <select id="queryAllMajor" resultType="Major">
+        select * from sms.major;
+    </select>
+
+    <select id="queryMajorByName" parameterType="String" resultType="Major">
+        select * from sms.major where majorName like concat('%',#{majorName},'%');
+    </select>
+
+</mapper>
